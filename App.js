@@ -1,30 +1,38 @@
 import React from 'react';
-import { StyleSheet, Button, Alert, Text, View } from 'react-native';
+import { Platform, StyleSheet, Button, ToolbarAndroid, Alert, Text, View } from 'react-native';
+var Consts = require('./Consts.js');
 
 function monikashow() {
-    Alert.alert('Monikashow!', 'You pressed MonikaShow!');
+  Alert.alert("LULZ");
 }
 
 export default class App extends React.Component {
-
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.fgtext}>Tezst.</Text>
-	<Button title="MonikaShow!!!" onPress={monikashow} />
+		{ Platform.OS === 'android' && Platform.Version >= 20 ?
+          <View style={styles.bgBar}></View> : null }
+        <ToolbarAndroid style={{height: 58, elevation: 4, backgroundColor: Consts.toolbarBg}}
+          navIcon={require('./menu_black.svg.png')} titleColor='black' title="Cheeze!" subtitle="Cheezez are good!" />
+        <View style={styles.base}>
+			<Text>MOONIKA!</Text>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#222',
-    padding: 24,
-    margin: 4,
+  bgBar: {
+	backgroundColor: Consts.statusBarColor,
+    height: 24,
   },
-  fgtext: {
-    color: '#FFF',
-    margin: 4,
+  container: {
+    height: '100%',
+    width: '100%',
+  },
+  base: {
+	backgroundColor: '#EEE',
+	padding: 8,
   },
 });
