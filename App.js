@@ -1,38 +1,34 @@
 import React from 'react';
-import { Platform, StyleSheet, Button, ToolbarAndroid, Alert, Text, View } from 'react-native';
-var Consts = require('./Consts.js');
+import { AppRegistry, View, Text, Image } from 'react-native';
+import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
+import GradesScreen from './GradesScreen';
+import AveragesScreen from './AveragesScreen';
 
-function monikashow() {
-  Alert.alert("LULZ");
-}
+const MainPageNav = TabNavigator({
+    Grades: { screen: GradesScreen },
+    Averages: { screen: AveragesScreen },
+}, {
+    animationEnabled: true,
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+        activeTintColor: '#111',
+    },
+});
+
+const HeaderNav = StackNavigator({
+    Home: { screen: MainPageNav, navigationOptions: ({navigation}) => ({
+        title: 'Whatevear...',
+    }) },
+});
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-		{ Platform.OS === 'android' && Platform.Version >= 20 ?
-          <View style={styles.bgBar}></View> : null }
-        <ToolbarAndroid style={{height: 58, elevation: 4, backgroundColor: Consts.toolbarBg}}
-          navIcon={require('./menu_black.svg.png')} titleColor='black' title="Cheeze!" subtitle="Cheezez are good!" />
-        <View style={styles.base}>
-			<Text>MOONIKA!</Text>
-        </View>
-      </View>
-    );
-  }
+    render() {
+        return(
+            <View style={{ flex: 1 }}>
+                <View style={{ backgroundColor: '#444', height: 24 }} />
+                <HeaderNav navigation={this.props.navigation} />
+            </View>
+        );
+    }
 }
-
-const styles = StyleSheet.create({
-  bgBar: {
-	backgroundColor: Consts.statusBarColor,
-    height: 24,
-  },
-  container: {
-    height: '100%',
-    width: '100%',
-  },
-  base: {
-	backgroundColor: '#EEE',
-	padding: 8,
-  },
-});
