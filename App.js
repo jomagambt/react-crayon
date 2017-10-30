@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppRegistry, Platform, StatusBar, View, Text, Image } from 'react-native';
 import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
+import styles from './Styles';
 import GradesScreen from './screens/GradesScreen';
 import AveragesScreen from './screens/AveragesScreen';
 
@@ -25,9 +26,12 @@ const MainPageNav = TabNavigator({
 
 const HeaderNav = StackNavigator({
     Home: { screen: MainPageNav, navigationOptions: ({navigation}) => ({
-        title: 'Whatevear...',
+        title: 'Testing',
+        headerRight: (
+          <Image style={[styles.icons, {padding: 32}]} source={require('./assets/icons/ic_done.png')} />
+        ),
     }) },
-}, { headerMode: 'none' });
+});
 
 export default class App extends React.Component {
     render() {
@@ -35,9 +39,6 @@ export default class App extends React.Component {
             <View style={{ flex: 1, backgroundColor: '#f9f9f9' }}>
                 <View style={{ height: STATUSBAR_HEIGHT, backgroundColor: STATUSBAR_BG }}>
                     <StatusBar translucent backgroundColor={STATUSBAR_BG} barStyle="light-content" />
-                </View>
-                <View style={{ height: APPBAR_HEIGHT, backgroundColor: APPBAR_BG, justifyContent: 'center', alignContent: 'center' }}>
-                    <Text style={{ color: "black", textAlign: 'center', fontSize: 20 }}>Whatevear..</Text>
                 </View>
                 <HeaderNav navigation={this.props.navigation} />
             </View>
