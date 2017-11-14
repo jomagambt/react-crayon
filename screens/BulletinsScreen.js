@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Image } from 'react-native';
+import { AppRegistry, Text, Image } from 'react-native';
 import styles from '../Styles';
 
 export default class AveragesScreen extends React.Component {
@@ -17,3 +17,5 @@ export default class AveragesScreen extends React.Component {
         );
     }
 }
+
+AppRegistry.registerComponent('AveragesScreen', () => AveragesScreen);

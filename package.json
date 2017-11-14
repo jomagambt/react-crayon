@@ -15,6 +15,7 @@
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
+    "babel-preset-expo": "^4.0.0",
     "react": "16.0.0-alpha.12",
     "react-native": "^0.48.4",
     "react-native-svg": "^5.4.2",

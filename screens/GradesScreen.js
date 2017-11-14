@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Image } from 'react-native';
+import { AppRegistry, Text, Image } from 'react-native';
 import styles from '../Styles';
 
 export default class GradesScreen extends Component {
@@ -16,3 +16,5 @@ export default class GradesScreen extends Component {
         );
     }
 }
+
+AppRegistry.registerComponent('GradesScreen', () => GradesScreen);
