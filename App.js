@@ -33,13 +33,13 @@ const HeaderNav = StackNavigator({
         title: 'Zsírkréta',
         headerLeft: (
           <TouchableOpacity>
-            <Image style={[styles.icons, { margin: 8, tintColor: COLOR_FOREGROUND }]}
+            <Image style={[styles.icons, { margin: 10, tintColor: COLOR_FOREGROUND }]}
               source={require('./assets/icons/ic_person.png')} />
           </TouchableOpacity>
         ),
         headerRight: (
           <TouchableOpacity>
-            <Image style={[styles.icons, { margin: 8, tintColor: COLOR_FOREGROUND }]}
+            <Image style={[styles.icons, { margin: 10, tintColor: COLOR_FOREGROUND }]}
               source={require('./assets/icons/ic_settings.png')} />
           </TouchableOpacity>
         ),

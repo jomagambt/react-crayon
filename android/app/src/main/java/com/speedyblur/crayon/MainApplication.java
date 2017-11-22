@@ -1,4 +1,4 @@
-package com.crayon;
+package com.speedyblur.crayon;
 
 import android.app.Application;
 
