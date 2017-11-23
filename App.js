@@ -6,6 +6,7 @@ import GradesScreen from './screens/GradesScreen';
 import AveragesScreen from './screens/AveragesScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
 import BulletinsScreen from './screens/BulletinsScreen';
+import ProfileManagementScreen from './screens/ProfileManagementScreen';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 
@@ -30,9 +31,9 @@ const MainPageNav = TabNavigator({
 
 const HeaderNav = StackNavigator({
     Home: { screen: MainPageNav, navigationOptions: ({navigation}) => ({
-        title: 'Zsírkréta',
+        title: 'Crayon',
         headerLeft: (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
             <Image style={[styles.icons, { margin: 10, tintColor: COLOR_FOREGROUND }]}
               source={require('./assets/icons/ic_person.png')} />
           </TouchableOpacity>
@@ -44,7 +45,10 @@ const HeaderNav = StackNavigator({
           </TouchableOpacity>
         ),
         headerTitleStyle: { textAlign: 'center', alignSelf: 'stretch' },
-    }) },
+    })},
+    Profile: { screen: ProfileManagementScreen, navigationOptions: ({navigation}) => ({
+        title: 'Manage Profiles',
+    })},
 });
 
 export default class App extends React.Component {
