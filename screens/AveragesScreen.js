@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, Image } from 'react-native';
 import styles from '../Styles';
 
-export default class AveragesScreen extends React.Component {
+export default class AveragesScreen extends Component {
     static navigationOptions = {
         tabBarLabel: 'Averages',
         tabBarIcon: ({tintColor}) => (

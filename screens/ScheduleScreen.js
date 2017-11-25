@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, Image } from 'react-native';
 import styles from '../Styles';
 
-export default class AveragesScreen extends React.Component {
+export default class ScheduleScreen extends Component {
     static navigationOptions = {
         tabBarLabel: 'Schedule',
         tabBarIcon: ({tintColor}) => (
@@ -18,4 +18,4 @@ export default class AveragesScreen extends React.Component {
     }
 }
 
-AppRegistry.registerComponent('AveragesScreen', () => AveragesScreen);
+AppRegistry.registerComponent('ScheduleScreen', () => ScheduleScreen);

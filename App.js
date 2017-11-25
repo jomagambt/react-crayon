@@ -7,6 +7,7 @@ import AveragesScreen from './screens/AveragesScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
 import BulletinsScreen from './screens/BulletinsScreen';
 import ProfileManagementScreen from './screens/ProfileManagementScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBar.currentHeight;
 
@@ -39,7 +40,7 @@ const HeaderNav = StackNavigator({
           </TouchableOpacity>
         ),
         headerRight: (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
             <Image style={[styles.icons, { margin: 10, tintColor: COLOR_FOREGROUND }]}
               source={require('./assets/icons/ic_settings.png')} />
           </TouchableOpacity>
@@ -48,6 +49,9 @@ const HeaderNav = StackNavigator({
     })},
     Profile: { screen: ProfileManagementScreen, navigationOptions: ({navigation}) => ({
         title: 'Manage Profiles',
+    })},
+    Settings: { screen: SettingsScreen, navigationOptions: ({navigation}) => ({
+        title: 'Settings',
     })},
 });
 
