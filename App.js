@@ -1,7 +1,12 @@
 import React from 'react';
 import { AppRegistry, Platform, StatusBar, View, Text, Image, TouchableOpacity } from 'react-native';
 import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
+
+// Globals
 import styles from './Styles';
+import locale from './Locale';
+
+// Screens
 import GradesScreen from './screens/GradesScreen';
 import AveragesScreen from './screens/AveragesScreen';
 import ScheduleScreen from './screens/ScheduleScreen';
@@ -48,10 +53,10 @@ const HeaderNav = StackNavigator({
         headerTitleStyle: { textAlign: 'center', alignSelf: 'stretch' },
     })},
     Profile: { screen: ProfileManagementScreen, navigationOptions: ({navigation}) => ({
-        title: 'Manage Profiles',
+        title: locale.manageProfiles,
     })},
     Settings: { screen: SettingsScreen, navigationOptions: ({navigation}) => ({
-        title: 'Settings',
+        title: locale.settings,
     })},
 });
 

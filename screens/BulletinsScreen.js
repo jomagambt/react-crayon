@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, Image } from 'react-native';
 import styles from '../Styles';
+import locale from '../Locale';
 
 export default class BulletinsScreen extends Component {
     static navigationOptions = {
-        tabBarLabel: 'Bulletins',
+        tabBarLabel: locale.bulletinsTab,
         tabBarIcon: ({tintColor}) => (
             <Image source={require('../assets/icons/ic_alert.png')}
               style={[styles.icons, {tintColor: tintColor}]} />
