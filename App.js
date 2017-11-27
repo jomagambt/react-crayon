@@ -1,6 +1,8 @@
 import React from 'react';
 import { AppRegistry, Platform, StatusBar, View, Text, Image, TouchableOpacity } from 'react-native';
 import { StackNavigator, TabBarBottom, TabNavigator } from 'react-navigation';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
+import AndroidFingerPopup from './AndroidFingerPopup';
 
 // Globals
 import styles from './Styles';
@@ -61,14 +63,42 @@ const HeaderNav = StackNavigator({
 });
 
 export default class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { popupShown: false };
+    }
+
+    fingerPopupDismissed = () => {
+        this.setState({ popupShown: false });
+    };
+
     render() {
+        const { popupShown } = this.state;
+
         return(
             <View style={{ flex: 1, backgroundColor: '#f9f9f9' }}>
+                {popupShown && (<AndroidFingerPopup style={styles.popup} handlePopupDismissed={this.fingerPopupDismissed} />)}
                 <View style={{ height: STATUSBAR_HEIGHT, backgroundColor: COLOR_STATUSBAR_BG }}>
                     <StatusBar translucent backgroundColor={COLOR_STATUSBAR_BG} barStyle="light-content" />
                 </View>
                 <HeaderNav navigation={this.props.navigation} />
             </View>
         );
+    }
+
+    componentDidMount() {
+        // TODO: Use error.message
+        FingerprintScanner.isSensorAvailable().catch(error => Alert.alert(locale.errorDialogTitle, locale.fingerprintError));
+
+        if (Platform.OS === 'ios') {
+            FingerprintScanner.authenticate({ description: "Whatever.." });
+        } else {
+            this.setState({ popupShown: true });
+        }
+    }
+
+    componentWillUnmount() {
+        FingerprintScanner.release();
     }
 }
