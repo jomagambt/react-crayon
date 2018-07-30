@@ -5,4 +5,10 @@ export default StyleSheet.create({
         flex: 1,
         alignItems: 'center',
     },
+    justifyCenter: {
+        justifyContent: 'center',
+    },
+    textInput: {
+        padding: 8,
+    },
 });
