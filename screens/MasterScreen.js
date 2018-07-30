@@ -44,7 +44,6 @@ export default class MasterScreen extends React.Component {
     }
 
     updateNavTitle(state) {
-        console.log("chstate happened");
         this.props.navigation.setParams({ title: state.routes[state.index].routeName });
     }
 
