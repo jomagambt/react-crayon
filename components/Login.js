@@ -15,10 +15,10 @@ export default class Login extends React.Component {
 
     render() {
         return (
-            <View style={[Styles.container, Styles.justifyCenter]}>
+            <View style={[Styles.container, Styles.justifyCenter, { padding: 24 }]}>
                 <InstituteSelector />
-                <TextInput onChangeText={(user) => this.setState({ user })} />
-                <TextInput secureTextEntry={true} onChangeText={(passwd) => this.setState({ passwd })} />
+                <TextInput style={Styles.textInput} onChangeText={(user) => this.setState({ user })} />
+                <TextInput style={Styles.textInput} secureTextEntry={true} onChangeText={(passwd) => this.setState({ passwd })} />
             </View>
         );
     }

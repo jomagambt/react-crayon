@@ -1,6 +1,6 @@
 import Expo from 'expo';
 
-import en from '../lang/en';
+import Lang from '../lang/Router';
 
 class Profileman {
     static db;
@@ -11,7 +11,7 @@ class Profileman {
                 this.db = Expo.SQLite.openDatabase('profiles');
             } catch (e) {
                 console.error(e);
-                reject(new Error(en.unableToOpenDb));
+                reject(new Error(Lang.unableToOpenDb));
             }
 
             // Schema
@@ -20,7 +20,7 @@ class Profileman {
                 t.executeSql('CREATE TABLE IF NOT EXISTS institutes (id TEXT PRIMARY KEY, name TEXT)');
             }, (e) => {
                 console.error(e);
-                reject(new Error(en.unableToOpenDb));
+                reject(new Error(Lang.unableToOpenDb));
             }, resolve);
         });
     }
