@@ -31,8 +31,6 @@ const TabNav = createBottomTabNavigator({
     },
 });
 
-let navTitle = 'Grades';
-
 export default class MasterScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
