@@ -14,5 +14,9 @@
     "react": "16.3.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-29.0.0.tar.gz",
     "react-navigation": "^2.9.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-google": "^0.9.1"
   }
 }
