@@ -1,10 +1,8 @@
 module.exports = {
     extends: "google",
     parser: "babel-eslint",
-    parserOptions: {
-        ecmaFeatures: {
-            jsx: true,
-        },
+    rules: {
+        "react/jsx-uses-vars": 2,
     },
     plugins: [
         "react",

@@ -1,2 +1,5 @@
-eslint:
-  enabled: true
+plugins:
+  eslint:
+    enabled: true
+    config:
+      config: .eslintrc.js
